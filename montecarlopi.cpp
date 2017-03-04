@@ -15,20 +15,22 @@
 /*
     Define pi using mathematical functions; not all implementations provide
     an implicit value.
-    Also, I just don't want to define my own constant
+    Also, I just don't want to define my own constant of arbitrary precision.
+	Better to leave precision in the hands of implementation when calculating
+	errors.
 */
 constexpr double const_pi() {
     return std::atan2(0,-1);
 }
 
 double CalcPiError(int n, int m) {
-    double radius = std::pow(10.0, (int)n);
+    double radius = std::pow(10.0, (double)n);
     std::random_device generator;  // "True" generator implementation
     std::uniform_real_distribution<double> distribution(-radius, radius);
     double x, y, distance;
     int incircle = 0;  // Count of points within circle
     int numpoints = (int)std::pow(10.0, (double)m);
-    // Using a Cartesian coordinate system
+    // Using a Cartesian coordinate system with geometry centroid at origin
     for (int num = 0; num < numpoints; num++) {
         // x coordinate
         x = distribution(generator);
