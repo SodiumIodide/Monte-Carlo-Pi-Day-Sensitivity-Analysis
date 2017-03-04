@@ -23,13 +23,13 @@ constexpr double const_pi() {
     return std::atan2(0,-1);
 }
 
-double CalcPiError(int n, int m) {
-    double radius = std::pow(10.0, (double)n);
+double CalcPiError(double n, double m) {
+    double radius = std::pow(10.0, n);
     std::random_device generator;  // "True" generator implementation
     std::uniform_real_distribution<double> distribution(-radius, radius);
     double x, y, distance;
     int incircle = 0;  // Count of points within circle
-    int numpoints = (int)std::pow(10.0, (double)m);
+    int numpoints = (int)std::pow(10.0, m);
     // Using a Cartesian coordinate system with geometry centroid at origin
     for (int num = 0; num < numpoints; num++) {
         // x coordinate
@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
         // The value m defines the number of points as 10^m
         // m from 0 to 7
         for (int m = 0; m < 8; m++) {
-            errormatrix[m][n] = CalcPiError(n, m);
+            errormatrix[m][n] = CalcPiError(static_cast<double>(n), static_cast<double>(m));
         }
     }
     // Display results in given character precision
