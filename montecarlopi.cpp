@@ -17,7 +17,7 @@
     an implicit value.
     Also, I just don't want to define my own constant of arbitrary precision.
     Better to leave precision in the hands of implementation when calculating
-	errors.
+    errors.
 */
 constexpr double const_pi() {
     return std::atan2(0,-1);
