@@ -16,7 +16,7 @@
     Define pi using mathematical functions; not all implementations provide
     an implicit value.
     Also, I just don't want to define my own constant of arbitrary precision.
-	Better to leave precision in the hands of implementation when calculating
+    Better to leave precision in the hands of implementation when calculating
 	errors.
 */
 constexpr double const_pi() {
